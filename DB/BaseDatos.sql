@@ -112,3 +112,80 @@ CREATE TABLE public.movimiento (
 	CONSTRAINT movimiento_pkey PRIMARY KEY (movimiento_id),
 	CONSTRAINT fk4ea11fe7p3xa1kwwmdgi9f2fi FOREIGN KEY (cuenta_id) REFERENCES public.cuenta(cuenta_id)
 );
+
+
+-- para los insert en la base se ejecuta lo siguiente
+
+INSERT INTO public.persona
+(persona_id, direccion, edad, genero, identificacion, nombre, telefono)
+VALUES(1, 'QUITO SUR', 32, 'masculino', '1751803162', 'andres alquinga', '0985632147');
+INSERT INTO public.persona
+(persona_id, direccion, edad, genero, identificacion, nombre, telefono)
+VALUES(2, 'QUITO SUR', 32, 'masculino', '1751844162', 'daniel diaz', '0985632147');
+INSERT INTO public.persona
+(persona_id, direccion, edad, genero, identificacion, nombre, telefono)
+VALUES(3, 'SOLANDA', 29, 'masculino', '1256348790', 'luis aguirre', '0974581362');
+INSERT INTO public.persona
+(persona_id, direccion, edad, genero, identificacion, nombre, telefono)
+VALUES(4, 'KENEDY', 24, 'masculino', '1325469870', 'jorge sarmiento', '09784512630');
+INSERT INTO public.persona
+(persona_id, direccion, edad, genero, identificacion, nombre, telefono)
+VALUES(6, 'KENEDY', 24, 'masculino', '0994153187', 'andres sarmiento', '0994153187');
+INSERT INTO public.persona
+(persona_id, direccion, edad, genero, identificacion, nombre, telefono)
+VALUES(7, 'SAN BARTOLO', 20, 'femenino', '9999999999', 'melisa llive', '0999999999');
+INSERT INTO public.persona
+(persona_id, direccion, edad, genero, identificacion, nombre, telefono)
+VALUES(5, 'QUITO SUR', 30, 'masculino', '1325469870', 'Lenin valenzuela', '0985632147');
+
+
+
+INSERT INTO public.cliente
+(cliente_id, contrasenia, estado, persona_id)
+VALUES(1, '12345', true, 1);
+INSERT INTO public.cliente
+(cliente_id, contrasenia, estado, persona_id)
+VALUES(2, '5678', true, 2);
+INSERT INTO public.cliente
+(cliente_id, contrasenia, estado, persona_id)
+VALUES(3, '963258', true, 3);
+INSERT INTO public.cliente
+(cliente_id, contrasenia, estado, persona_id)
+VALUES(4, '452152', true, 4);
+INSERT INTO public.cliente
+(cliente_id, contrasenia, estado, persona_id)
+VALUES(5, '6987', true, 5);
+INSERT INTO public.cliente
+(cliente_id, contrasenia, estado, persona_id)
+VALUES(6, '452152', true, 6);
+INSERT INTO public.cliente
+(cliente_id, contrasenia, estado, persona_id)
+VALUES(7, '999999', true, 7);
+
+
+INSERT INTO public.cuenta
+(cuenta_id, cliente_id, estado, numero_cuenta, saldo_inicial, tipo_cuenta)
+VALUES(1, 1, true, '333444', 10.00, 'Ahorros');
+INSERT INTO public.cuenta
+(cuenta_id, cliente_id, estado, numero_cuenta, saldo_inicial, tipo_cuenta)
+VALUES(2, 2, true, '89789', 203.00, 'CORRIENTE');
+INSERT INTO public.cuenta
+(cuenta_id, cliente_id, estado, numero_cuenta, saldo_inicial, tipo_cuenta)
+VALUES(3, 3, true, '101112', 1000.00, 'CORRIENTE');
+INSERT INTO public.cuenta
+(cuenta_id, cliente_id, estado, numero_cuenta, saldo_inicial, tipo_cuenta)
+VALUES(4, 4, true, '22366', 85.00, 'Ahorros');
+INSERT INTO public.cuenta
+(cuenta_id, cliente_id, estado, numero_cuenta, saldo_inicial, tipo_cuenta)
+VALUES(5, 6, true, '12345', 0.00, 'Ahorros');
+INSERT INTO public.cuenta
+(cuenta_id, cliente_id, estado, numero_cuenta, saldo_inicial, tipo_cuenta)
+VALUES(6, 7, true, '999999', 100.00, 'Ahorros');
+
+
+INSERT INTO public.movimiento
+(movimiento_id, fecha, saldo, tipo_movimiento, valor, cuenta_id)
+VALUES(1, '2024-08-08 14:44:34.000', 990.00, 'Retiro', 10.00, 3);
+INSERT INTO public.movimiento
+(movimiento_id, fecha, saldo, tipo_movimiento, valor, cuenta_id)
+VALUES(2, '2024-09-08 23:19:28.902', 1020.00, 'Deposito', 20.00, 6);
