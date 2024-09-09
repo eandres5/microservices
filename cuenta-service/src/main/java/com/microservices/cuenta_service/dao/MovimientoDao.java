@@ -11,8 +11,6 @@ import com.microservices.cuenta_service.mode.entities.Movimiento;
 @Repository
 public interface MovimientoDao extends JpaRepository<Movimiento, Long>{
 	
-//	@Query(name = "Movimiento.findCustomData")
-//    List<MovimientoResponseDto> findCustomData();    
     List<Movimiento> findByCuenta_CuentaIdAndFechaBetween(Long cuentaId, LocalDateTime fechaDesde, LocalDateTime fechaHasta);
 
 }

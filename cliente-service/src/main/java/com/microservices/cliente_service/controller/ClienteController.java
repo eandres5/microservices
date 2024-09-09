@@ -46,21 +46,12 @@ public class ClienteController {
 					return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(false);
 				});
 	}
-
-//	@GetMapping(value = "/{clienteId}", produces = "application/json")
-//	public CompletableFuture<ClienteDto> getCliente(@PathVariable Long clienteId) throws Exception {
-//		return clienteService.getClienteDto(clienteId).exceptionally(e -> {
-//			// Manejo de excepciones
-//			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error inesperado", e);
-//		});
-//	}
 	
 	@GetMapping(value = "/{clienteId}", produces = "application/json")
 	public Mono<ClienteDto> getCliente(@PathVariable Long clienteId) throws Exception {
 	    return Mono.fromFuture(clienteService.getClienteDto(clienteId));
 	}
 	
-
 	@GetMapping
 	public CompletableFuture<ResponseEntity<List<ClienteDto>>> getAllClientes() throws Exception {
 		return clienteService.listClientes().thenApply(clientes -> ResponseEntity.ok(clientes)).exceptionally(ex -> {

@@ -34,7 +34,6 @@ public class Persona implements Serializable{
     private String identificacion;
     private String direccion;
     private String telefono;
-    //bi-directional many-to-one association to Cliente
   	@OneToOne(mappedBy="persona")
   	private Cliente cliente;
     

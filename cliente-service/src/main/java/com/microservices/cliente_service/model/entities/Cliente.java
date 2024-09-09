@@ -29,12 +29,8 @@ public class Cliente implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="cliente_id")
 	private long clienteId;
-
 	private String contrasenia;
-
 	private Boolean estado;
-
-	//bi-directional many-to-one association to Persona
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="persona_id")
 	private Persona persona;
