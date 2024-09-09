@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "6bff5bf3-d946-49df-9198-f22f367eacf2",
+		"name": "Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37538157"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "saveCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"melisa llive\",\r\n    \"genero\": \"femenino\",\r\n    \"edad\": \"20\",\r\n    \"identificacion\": \"9999999999\",\r\n    \"direccion\": \"SAN BARTOLO\",\r\n    \"telefono\": \"0999999999\",\r\n    \"contrasena\": \"999999\",\r\n    \"estado\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/clientes/save"
+					},
+					"response": []
+				},
+				{
+					"name": "all clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "update cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Lenin valenzuela\",\r\n    \"genero\": \"masculino\",\r\n    \"edad\": \"30\",\r\n    \"direccion\": \"QUITO SUR\",\r\n    \"telefono\": \"0985632147\",\r\n    \"contrasena\": \"6987\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/clientes/edit/5"
+					},
+					"response": []
+				},
+				{
+					"name": "get cliente",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "valida cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/clientes/isCliente/7"
+					},
+					"response": []
+				},
+				{
+					"name": "delete cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8081/clientes/delete/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuentas",
+			"item": [
+				{
+					"name": "save cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroCuenta\":\"999999\",\r\n\t\"saldo\":\"100\",\r\n\t\"tipoCuenta\":\"Ahorros\",\r\n\t\"clienteId\": \"7\",\r\n\t\"estado\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/cuentas/save"
+					},
+					"response": []
+				},
+				{
+					"name": "get cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/cuentas/3"
+					},
+					"response": []
+				},
+				{
+					"name": "get all cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/cuentas"
+					},
+					"response": []
+				},
+				{
+					"name": "delete cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/cuentas/delete/1"
+					},
+					"response": []
+				},
+				{
+					"name": "reporte movimiento usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/cuentas/reporte?clienteId=7&fechaDesde=2024-01-01T00:00:00&fechaHasta=2024-01-31T23:59:59",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"cuentas",
+								"reporte"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "7"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2024-01-01T00:00:00"
+								},
+								{
+									"key": "fechaHasta",
+									"value": "2024-01-31T23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "get all movimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/movimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "get movimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/movimientos/1"
+					},
+					"response": []
+				},
+				{
+					"name": "save movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroDeCuenta\": \"101112\",\r\n\t\"tipoMovimiento\": \"Retiro\",\r\n\t\"valor\":\"10\",\r\n\t\"clienteId\": \"\",\r\n\t\"fecha\":\"\",\r\n\t\"saldo\":\"1000.00\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movimientos/save"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
